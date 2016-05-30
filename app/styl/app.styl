@@ -6,9 +6,6 @@ setSize($width, $height = $width)
 	width $width
 	height $height
 	
-addTrans($prop = all, $dur = 0.3s, $func = ease-in-out, $delay = 0s)
-	transition $prop $dur $func $delay
-	
 //animations
 @keyframes showEl
 	0%
@@ -24,7 +21,6 @@ addTrans($prop = all, $dur = 0.3s, $func = ease-in-out, $delay = 0s)
 
 	100%
 		opacity 1
-		transform scale(1) rotate(45deg)
 
 // common
 .body
@@ -41,10 +37,27 @@ addTrans($prop = all, $dur = 0.3s, $func = ease-in-out, $delay = 0s)
 		display block
 		setSize(20vh)
 		transform rotate(45deg)
-		background green
-		addTrans(null, .15s, linear)
+		border-width 1px 1px 1px 1px
+		overflow hidden
+		addTrans(all, .15s, linear)
+		transition: background-color .15s linear 0s, border-bottom .5s linear 0s
 		animation showEl 2s
 		&:hover
 			cursor pointer
-			transform rotate(-45deg) scale(1.4)
-			box-shadow inset 0 0 5vh #000	
+			outline 1px solid blue
+	&__triangle
+		position absolute
+		left 0
+		top 0
+		display block
+		/*&:before
+			content ''
+			position absolute
+			left 0
+			top 0
+			display block
+			setSize(0)
+			transform rotate(90deg)
+			border-style solid
+			border-color #000 transparent transparent transparent
+			border-width 20vh 0vh 0vh 20vh*/
